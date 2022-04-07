@@ -5,7 +5,6 @@ using System.IO;
 
 namespace PierresBakery.Models
 {
-  //Change to project name
   public class PierresBakeryContextFactory : IDesignTimeDbContextFactory<PierresBakeryContext>
   {
     PierresBakeryContext IDesignTimeDbContextFactory<PierresBakeryContext>.CreateDbContext(string[] args)
