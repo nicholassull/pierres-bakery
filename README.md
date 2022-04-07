@@ -1,5 +1,5 @@
 <!-- Change to Project Name -->
-# _To Do List in C#_
+# _Pierre's Bakery_
 
 #### By _**Nick Sullivan**_
 
