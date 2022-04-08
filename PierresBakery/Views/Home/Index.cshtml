@@ -1,0 +1,13 @@
+@{
+  Layout = "_Layout";
+}
+<h1 class="p-5 jumbotron">Pierre's Bakery Manager</h1>
+<hr />
+<div class="my-4">
+  <p>A place to track your favorite treats and their many flavors!</p>
+</div>
+
+<hr />
+
+@Html.ActionLink("View Treats", "Index", "Treats", new{}, new { @class = "btn btn-outline-primary" })
+@Html.ActionLink("View Flavors", "Index", "Flavors", new{}, new { @class = "btn btn-outline-primary" })
