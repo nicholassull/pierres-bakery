@@ -1,5 +1,16 @@
+#main-container {
+  text-align: center;
+  border-radius: 10px;
+  max-width: 900px;
+  min-width: 400px;
+  height: 100%;
+  padding: 10px 20px;
+  margin-top: 10px;
+}
+
 div#footer {
   position:fixed;
+  text-align: left;
   bottom:0px;
   left:0px;
   width:100%;
