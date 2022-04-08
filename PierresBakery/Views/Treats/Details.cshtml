@@ -1,0 +1,32 @@
+@{
+  Layout = "_Layout";
+}
+@model PierresBakery.Models.Treat;
+
+<h2>Treat Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+
+@if(@Model.JoinEntities.Count == 0)
+{
+  <p>This treat hasnt been assigned any flavors yet!</p>
+  <p>Click the button bellow get started.</p>
+}
+else
+{
+  <h4>Associated Flavors:</h4>
+
+  @foreach(var join in Model.JoinEntities)
+  {   
+    <br>
+    
+    @using (Html.BeginForm("DeleteFlavor", "Treats")) 
+    {
+      <button type="submit" class="btn btn-danger btn-sm" value="Delete">
+      Delete
+      </button>
+      @Html.Hidden("joinId", @join.FlavorTreatId)
+      <span class="badge bg-secondary float-left">@join.Flavor.Name</span>
+      }
+  }
+}
