@@ -27,6 +27,10 @@ else
       </button>
       @Html.Hidden("joinId", @join.FlavorTreatId)
       <span class="badge bg-secondary float-left">@join.Flavor.Name</span>
-      }
+    }
   }
 }
+@Html.ActionLink("Home", "Index", "Home", new { }, new { @class = "btn btn-outline-primary"})
+@Html.ActionLink("Edit Treat", "Edit", new { id = Model.TreatId }, new { @class = "btn btn-outline-primary"})
+@Html.ActionLink("Delete Treat", "Delete", new { id = Model.TreatId }, new { @class = "btn btn-outline-primary"})
+@Html.ActionLink("Add a Flavor", "AddFlavor", new { id = Model.TreatId }, new { @class = "btn btn-outline-primary"})
