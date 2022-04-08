@@ -10,9 +10,13 @@
     <p>Now that you're signed in, you can add all your favorite treats and flavors.</p>
     
     <br>
-    @Html.ActionLink("Add Treat", "Create", "Treats", new { }, new { @class = "btn btn-primary"})
-    @Html.ActionLink("Add Flavor", "Create", "Flavors", new { }, new { @class = "btn btn-primary"})
-    <p>@Html.ActionLink("Home", "Index", "Home")</p>
+    @Html.ActionLink("Add Treat", "Create", "Treats", new { }, new { @class = "mx-1 btn btn-outline-primary"})
+
+    @Html.ActionLink("Add Flavor", "Create", "Flavors", new { }, new { @class = "mx-1 btn btn-outline-primary"})
+
+    @Html.ActionLink("Home", "Index", "Home", new { }, new { @class = "mx-1 btn btn-outline-primary"})
+
+
 }
 else
 {

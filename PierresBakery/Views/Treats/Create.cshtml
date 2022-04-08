@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@using PierresBakery.ViewModels;
+@model PierresBakery.Models.Treat
+
+<h2>Create Treat</h2>
+<hr />
+<div class="w-50 m-auto">
+@using (Html.BeginForm())
+{
+  <div class="form-group">
+    @Html.LabelFor(treat => treat.Name)
+    @Html.TextBoxFor(treat => treat.Name, new { @class = "form-control", placeholder = "Name", required = "required"})
+  </div>
+  <input type="submit" value="Register" class="btn btn-info" />
+}
+</div>
+<hr />
+@Html.ActionLink("Back", "Index", new { }, new { @class = "btn btn-primary"})
