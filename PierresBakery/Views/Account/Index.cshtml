@@ -1,0 +1,23 @@
+@{
+  Layout = "_Layout";
+}
+
+@using System.Security.Claims
+
+<h2></h2>
+<hr />
+@if (User.Identity.IsAuthenticated)
+{
+    <h2>Welcome @User.Identity.Name!</h2>
+    <hr />
+    <p>Now that you're signed in, you can add all your favorite treats and flavors.</p>
+    
+    
+    <p>@Html.ActionLink("Home", "Index", "Home")</p>
+}
+else
+{
+    <p>@Html.ActionLink("Register", "Register")</p>
+    <p>@Html.ActionLink("Log in", "Login")</p>
+    <p>@Html.ActionLink("Home", "Index", "Home")</p>
+}

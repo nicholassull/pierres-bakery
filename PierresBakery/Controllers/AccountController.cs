@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using PierresBakery.Models;
 using System.Threading.Tasks;
 using PierresBakery.ViewModels;
+using System;
 
 namespace PierresBakery.Controllers
 {
@@ -34,10 +35,12 @@ namespace PierresBakery.Controllers
       IdentityResult result = await _userManager.CreateAsync(user, model.Password);
       if (result.Succeeded)
       {
+        Console.WriteLine("Succesfull");
         return RedirectToAction("Index");
       }
       else
       {
+        Console.WriteLine("Unsuccesfull");
         return View();
       }
     }
@@ -53,10 +56,12 @@ namespace PierresBakery.Controllers
 
       if (result.Succeeded)
       {
+        Console.WriteLine("Succesfull");
         return RedirectToAction("Index");
       }
       else
       {
+        Console.WriteLine("Unsuccesfull");
         return View();
       }
     }
