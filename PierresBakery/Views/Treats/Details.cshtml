@@ -9,7 +9,7 @@
 
 @if(@Model.JoinEntities.Count == 0)
 {
-  <p>This treat hasnt been assigned any flavors yet!</p>
+  <p>This treat hasn't been assigned any flavors yet!</p>
   <p>Click the button bellow get started.</p>
 }
 else
@@ -19,7 +19,6 @@ else
   @foreach(var join in Model.JoinEntities)
   {   
     <br>
-    
     @using (Html.BeginForm("DeleteFlavor", "Treats")) 
     {
       <button type="submit" class="btn btn-danger btn-sm" value="Delete">
@@ -30,6 +29,7 @@ else
     }
   }
 }
+<hr />
 @Html.ActionLink("Home", "Index", "Home", new { }, new { @class = "btn btn-outline-primary"})
 @Html.ActionLink("Edit Treat", "Edit", new { id = Model.TreatId }, new { @class = "btn btn-outline-primary"})
 @Html.ActionLink("Delete Treat", "Delete", new { id = Model.TreatId }, new { @class = "btn btn-outline-primary"})
