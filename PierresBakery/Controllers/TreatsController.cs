@@ -42,9 +42,9 @@ namespace PierresBakery.Controllers
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       var currentUser = await _userManager.FindByIdAsync(userId);
       treat.User = currentUser;
-      bool duplicateTreat = _db.Treats.Any(anyTreat => anyTreat.Name == treat.Name);
+      bool isDuplicate = _db.Treats.Any(anyTreat => anyTreat.Name == treat.Name);
       //Add a message to user via ViewBag if it is a duplicate.
-      if (treat.Name != null && !duplicateTreat)
+      if (treat.Name != null && !isDuplicate)
       {
         _db.Treats.Add(treat);
         _db.SaveChanges();

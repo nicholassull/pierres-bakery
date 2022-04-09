@@ -31,8 +31,12 @@ namespace PierresBakery.Controllers
     [HttpPost]
     public ActionResult Create(Flavor flavor)
     {
-      _db.Flavors.Add(flavor);
-      _db.SaveChanges();
+      bool isDuplicate = _db.Flavors.Any(anyFlavor => anyFlavor.Name == flavor.Name);
+      if (!isDuplicate)
+      {
+        _db.Flavors.Add(flavor);
+        _db.SaveChanges();
+      }
       return RedirectToAction("Index");
     }
     public ActionResult Details(int id)
