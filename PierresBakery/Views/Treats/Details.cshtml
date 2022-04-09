@@ -16,22 +16,22 @@ else
 {
   <h4>Associated Flavors</h4>
   <br>
+  <div class="row justify-content-center">
     @foreach(var join in Model.JoinEntities)
     {   
-      <div class="row justify-content-center">
-        <div class="col-2 mx-2">
-          <span class="">@join.Flavor.Name</span>
-          @using (Html.BeginForm("DeleteFlavor", "Treats")) 
-          {
-            <button type="submit" class="btn btn-warning btn-sm" value="Delete">
-            Delete
-            </button>
-            @Html.Hidden("joinId", @join.FlavorTreatId)
-            @Html.Hidden("treatId", @join.TreatId)
-          }
-        </div>
+      <div class="col-2 mx-2">
+        <span class="">@join.Flavor.Name</span>
+        @using (Html.BeginForm("DeleteFlavor", "Treats")) 
+        {
+          <button type="submit" class="btn btn-warning btn-sm" value="Delete">
+          Delete
+          </button>
+          @Html.Hidden("joinId", @join.FlavorTreatId)
+          @Html.Hidden("treatId", @join.TreatId)
+        }
       </div>
     }
+  </div>
 }
 <hr />
 @Html.ActionLink("Home", "Index", "Home", new { }, new { @class = "btn btn-outline-primary"})
