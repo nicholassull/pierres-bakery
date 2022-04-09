@@ -14,9 +14,11 @@ namespace PierresBakery.Controllers
   public class FlavorsController : Controller
   {
     private readonly PierresBakeryContext _db;
+    private readonly UserManager<ApplicationUser> _userManager;
     
-    public FlavorsController(PierresBakeryContext db)
+    public FlavorsController(UserManager<ApplicationUser> userManager, PierresBakeryContext db)
     {
+      _userManager = userManager;
       _db = db;
     }
     public ActionResult Index()
@@ -24,10 +26,12 @@ namespace PierresBakery.Controllers
       List<Flavor> model = _db.Flavors.OrderBy(flavor => flavor.Name).ToList();
       return View(model);
     }
+    [Authorize]
     public ActionResult Create()
     {
       return View();
     }
+    [Authorize]
     [HttpPost]
     public ActionResult Create(Flavor flavor)
     {
@@ -47,12 +51,14 @@ namespace PierresBakery.Controllers
       .FirstOrDefault(flavor => flavor.FlavorId == id);
       return View(thisFlavor);
     }
+    [Authorize]
     public ActionResult Delete (int id)
     {
       var thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
       return View(thisFlavor);
       
     }
+    [Authorize]
     [HttpPost,ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {

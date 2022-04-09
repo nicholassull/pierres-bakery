@@ -14,14 +14,17 @@
 }
 else
 {
-  <h4>Associated Flavors:</h4>
-
-  @foreach(var join in Model.JoinEntities)
-  {   
-    @Html.ActionLink($"{join.Treat.Name}", "Details", "Treats", new { id = join.TreatId})
-  }
+  <h4>Associated Treats</h4>
+  <br>
+  <div class="row justify-content-center">
+    @foreach(var join in Model.JoinEntities)
+    {
+      <div class="col-2 mx-2">
+        @Html.ActionLink($"{join.Treat.Name}", "Details", "Treats", new { id = join.TreatId})
+      </div>  
+    }
+  </div>
 }
 <hr />
 @Html.ActionLink("Home", "Index", "Home", new { }, new { @class = "btn btn-outline-primary"})
-@Html.ActionLink("Edit Flavor", "Edit", new { id = Model.FlavorId }, new { @class = "btn btn-outline-primary"})
 @Html.ActionLink("Delete Flavor", "Delete", new { id = Model.FlavorId }, new { @class = "btn btn-outline-primary"})
