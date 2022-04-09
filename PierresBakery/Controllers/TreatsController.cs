@@ -107,5 +107,13 @@ namespace PierresBakery.Controllers
       }
       return RedirectToAction("Details", new { id = treat.TreatId });
     }
+    [HttpPost]
+    public ActionResult DeleteFlavor(int joinId, int treatId)
+    {
+      var joinEntry = _db.FlavorTreats.FirstOrDefault(entry => entry.FlavorTreatId == joinId);
+      _db.FlavorTreats.Remove(joinEntry);
+      _db.SaveChanges();
+      return RedirectToAction("Details", new { id = treatId});
+    }
   }
 }
